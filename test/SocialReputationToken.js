@@ -94,6 +94,20 @@ describe("SocialReputationToken contract", () => {
     });
 
     describe("redeem", () => {
+        describe("when the address doesn't own a token", () => {
+            it("should throw an error", async () =>  {
+                const ERROR_MESSAGE = "VM Exception while processing transaction: revert This address does not hold any tokens";
+                let addr1Addr = await addr1.getAddress();
+
+                try {
+                    await socialReputationToken.redeem(addr1Addr)
+                    throw null;
+                } catch (err) {
+                    expect(err.message).to.equal(ERROR_MESSAGE);
+                }
+            });
+        });
+
         describe("after calling redeem once", () => {
             it("should delete the token owner", async () => {
                 let addr1Addr = await addr1.getAddress();
