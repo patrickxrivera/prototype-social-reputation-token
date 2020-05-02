@@ -7,13 +7,14 @@ const deploySocialReputationContract = async ({
     TOKEN_URI_PREFIX
 }) => {
     Token = await ethers.getContractFactory("SocialReputationToken");
-    [owner, addr1, addr2, ...addrs] = await ethers.getSigners();
+    [owner, addr1, addr2, addr3, ...addrs] = await ethers.getSigners();
 
     const socialReputationToken = await Token.deploy(NAME, SYMBOL, TOKEN_URI_PREFIX, TOTAL_SUPPLY);
     
     return {
         addr1,
         addr2,
+        addr3,
         owner,
         addrs,
         socialReputationToken: await socialReputationToken.deployed()
