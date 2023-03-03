@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/nomiclabs/buidler-hackathon-boilerplate#readme",
   "devDependencies": {
-    "@nomiclabs/buidler": "^1.2.0",
+    "@nomiclabs/buidler": "^1.4.8",
     "@nomiclabs/buidler-ethers": "^1.2.0",
     "@nomiclabs/buidler-waffle": "^1.2.0",
     "chai": "^4.2.0",
